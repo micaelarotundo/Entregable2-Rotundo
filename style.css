@@ -21,7 +21,6 @@ h1, h2 {
     color: #E6E6FA; 
 }
 
-
 .btn {
     font-size: 16px;
     padding: 10px 15px;
@@ -54,11 +53,10 @@ h1, h2 {
     background-color: #A5005C;
 }
 
-
 .card {
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     background-color: #800080; 
     color: #fff;
     border: none;
@@ -66,9 +64,8 @@ h1, h2 {
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
-
 
 input {
     border-radius: 5px;
@@ -101,4 +98,37 @@ input:focus {
     .container {
         width: 95%;
     }
+
+    .btn {
+        font-size: 14px;
+        padding: 12px 18px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #7B1FA2;
+    transition: background-color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #A5005C;
+    transition: background-color 0.2s ease;
 }

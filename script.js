@@ -1,9 +1,11 @@
-let productos = JSON.parse(localStorage.getItem("productos")) || [
-    { nombre: "Toallón", precio: 2500 },
-    { nombre: "Manta", precio: 5000 },
-    { nombre: "Pijama", precio: 7000 },
-    { nombre: "Medias", precio: 1200 }
-];
+let productos = []; 
+fetch("productos.json")
+    .then((response) => response.json())
+    .then((data) => {
+        productos = data;
+        mostrarProductos();
+    })
+    .catch((error) => console.error("Error al cargar los productos", error));
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let total = carrito.reduce((acc, prod) => acc + prod.precio, 0);
@@ -103,13 +105,13 @@ formProducto.addEventListener("submit", (e) => {
 });
 
 function mostrarMensaje(texto, tipo) {
-    mensajeContainer.textContent = texto;
-    mensajeContainer.className = `alert alert-${tipo}`;
-    mensajeContainer.classList.remove("d-none");
-    setTimeout(() => {
-        mensajeContainer.classList.add("d-none");
-    }, 3000);
+    Swal.fire({
+        text: texto,
+        icon: tipo, // puede ser "success", "error", "warning", "info"
+        confirmButtonColor: '#8A2BE2'
+    });
 }
 
+// Inicialización
 mostrarProductos();
 actualizarCarrito();
